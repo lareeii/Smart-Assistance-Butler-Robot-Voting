@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Assistance Robot – Concept Voting</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body{background:#f5f7fb}
+</style>
+</head>
+
+<body class="font-sans">
+
+<!-- HEADER -->
+<header class="text-center py-10 px-6">
+<h1 class="text-3xl md:text-4xl font-bold mb-3">Help Us Choose the Future Smart Assistant Robot</h1>
+<p class="text-gray-600 max-w-2xl mx-auto">We are developing a new smart assistance robot. Review the three design concepts below and rate each one from <strong>1 (low)</strong> to <strong>5 (excellent)</strong>. Your feedback will help guide the final design.</p>
+</header>
+
+<!-- CONCEPT GRID -->
+<main class="max-w-6xl mx-auto px-6 pb-16">
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<!-- CONCEPT 1 -->
+<div class="bg-white rounded-2xl shadow-lg p-6 text-center">
+<img src="conceptA.png" class="h-48 w-full object-cover rounded-xl mb-4" alt="Concept A">
+<h2 class="text-xl font-semibold mb-2">Concept A</h2>
+<p class="text-gray-600 text-sm mb-4">Friendly domestic assistant with a compact body and expressive screen interface.</p>
+<div class="flex justify-center gap-3">
+<label><input type="radio" name="conceptA" value="1"> 1</label>
+<label><input type="radio" name="conceptA" value="2"> 2</label>
+<label><input type="radio" name="conceptA" value="3"> 3</label>
+<label><input type="radio" name="conceptA" value="4"> 4</label>
+<label><input type="radio" name="conceptA" value="5"> 5</label>
+</div>
+</div>
+
+<!-- CONCEPT 2 -->
+<div class="bg-white rounded-2xl shadow-lg p-6 text-center">
+<img src="conceptB.png" class="h-48 w-full object-cover rounded-xl mb-4" alt="Concept B">
+<h2 class="text-xl font-semibold mb-2">Concept B</h2>
+<p class="text-gray-600 text-sm mb-4">Minimalist robot designed for efficiency and seamless integration into modern homes.</p>
+<div class="flex justify-center gap-3">
+<label><input type="radio" name="conceptB" value="1"> 1</label>
+<label><input type="radio" name="conceptB" value="2"> 2</label>
+<label><input type="radio" name="conceptB" value="3"> 3</label>
+<label><input type="radio" name="conceptB" value="4"> 4</label>
+<label><input type="radio" name="conceptB" value="5"> 5</label>
+</div>
+</div>
+
+<!-- CONCEPT 3 -->
+<div class="bg-white rounded-2xl shadow-lg p-6 text-center">
+<img src="conceptC.png" class="h-48 w-full object-cover rounded-xl mb-4" alt="Concept C">
+<h2 class="text-xl font-semibold mb-2">Concept C</h2>
+<p class="text-gray-600 text-sm mb-4">Advanced assistant with modular components and enhanced mobility.</p>
+<div class="flex justify-center gap-3">
+<label><input type="radio" name="conceptC" value="1"> 1</label>
+<label><input type="radio" name="conceptC" value="2"> 2</label>
+<label><input type="radio" name="conceptC" value="3"> 3</label>
+<label><input type="radio" name="conceptC" value="4"> 4</label>
+<label><input type="radio" name="conceptC" value="5"> 5</label>
+</div>
+</div>
+
+</div>
+
+<!-- SUBMIT -->
+<div class="text-center mt-12">
+<button onclick="submitVote()" class="bg-black text-white px-10 py-4 rounded-xl hover:bg-gray-800 text-lg">Submit Your Evaluation</button>
+</div>
+
+<!-- THANK YOU MESSAGE -->
+<p id="thanks" class="text-center text-green-600 font-semibold mt-6 hidden">Thank you for helping us improve the robot design!</p>
+
+</main>
+
+<script>
+function getValue(name){
+let radios=document.getElementsByName(name);
+for(let r of radios){if(r.checked)return r.value}
+return null
+}
+
+function submitVote(){
+let a=getValue('conceptA');
+let b=getValue('conceptB');
+let c=getValue('conceptC');
+
+if(!a||!b||!c){
+alert('Please rate all three concepts before submitting.');
+return;
+}
+
+console.log({conceptA:a,conceptB:b,conceptC:c});
+document.getElementById('thanks').classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>
